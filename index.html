@@ -4,15 +4,14 @@
 <style>
 body { background: #333; color: #eee; }
 textarea { width: 100%; height: 80vh; background: #222; color: #aaa; }
-</style>
+  body { font-size: 17px; }</style>
 </head>
 <body>
 <textarea></textarea>
 <span id='count'>0 Characters</span>
 
 <script>
-const ding = new Audio('820353_bryansaravia_typewriter-key-press-06.wav)
-ding.load();
+const ding = new Audio('https://github.com/notreimuhakurei/le-text-editor/raw/refs/heads/main/820353__bryansaraiva__typewriter-key-press-06.wav');ding.load();
 document.querySelector('textarea').addEventListener('keydown', function() {
   localStorage.setItem('myText', this.value);
   document.getElementById('count').textContent = this.value.length + ' Characters';
