@@ -2,20 +2,23 @@
 <head>
 <title>random editor lol</title>
 <style>
-body { background: #333; color: #eee; }
+body { background: #333; color: #eee; font-size: 25px; }
 textarea { width: 100%; height: 80vh; background: #222; color: #aaa; }
-  body { font-size: 17px; }</style>
+</style>
 </head>
 <body>
 <textarea></textarea>
 <span id='count'>0 Characters</span>
 
 <script>
-const ding = new Audio('https://github.com/notreimuhakurei/le-text-editor/raw/refs/heads/main/820353__bryansaraiva__typewriter-key-press-06.wav');ding.load();
-document.querySelector('textarea').addEventListener('keydown', function() {
-  localStorage.setItem('myText', this.value);
-  document.getElementById('count').textContent = this.value.length + ' Characters';
-  ding.play();
+const ding = new Audio('https://raw.githubusercontent.com/notreimuhakurei/le-text-editor/main/820353__bryansaraiva__typewriter-key-press-06.wav');
+ding.load();
+document.querySelector('textarea').addEventListener('keydown', function(event) {
+  if (event.keyCode !== 16 && event.keyCode !== 32) {
+    localStorage.setItem('myText', this.value);
+    document.getElementById('count').textContent = this.value.length + ' Characters';
+    ding.play();
+  }
 });
 window.onload = function() {
   document.querySelector('textarea').value = localStorage.getItem('myText') || '';
@@ -24,4 +27,4 @@ window.onload = function() {
 </script>
 
 </body>
-</html>
+</html>`.
